@@ -1,0 +1,24 @@
+<script src="https://code.jquery.com/jquery-1.12.4.min.js" integrity="sha256-ZosEbRLbNQzLpnKIkEdrPv7lOy9C27hHQ+Xp8a4MxAQ=" crossorigin="anonymous"></script>
+<script>
+var URL = 'http://api.sykenote.dev/api/notes',
+    callback = function(data) {
+        console.log('response', data);
+    };
+
+function send() {
+    var data = {
+            'content': 'qwe'
+        };
+    $.post(URL, data, callback);
+}
+
+function getStuff() {
+    $.get(URL, callback);
+}
+
+send();
+//getStuff();
+
+console.log('done');
+
+</script>

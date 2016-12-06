@@ -1,0 +1,40 @@
+<script>
+function send() {
+    var url = 'http://api.sykenote.dev/api/notes',
+        data = {
+            'content': 'qwe'
+        },
+        xhttp = new XMLHttpRequest();
+
+    xhttp.onreadystatechange = function() {
+        if (this.readyState == 4) {
+            console.log('response', this.responseText);
+        }
+    };
+
+    xhttp.open("POST", url, true);
+    xhttp.send();
+    console.log(xhttp);
+}
+
+function getStuff() {
+    var url = 'http://api.sykenote.dev/api/notes',
+        xhttp = new XMLHttpRequest();
+
+    xhttp.onreadystatechange = function() {
+        if (this.readyState == 4) {
+            console.log('response', this.responseText);
+        }
+    };
+
+    xhttp.open("GET", url, true);
+    xhttp.send();
+    console.log(xhttp);
+}
+
+send();
+//getStuff();
+
+console.log('done');
+
+</script>
