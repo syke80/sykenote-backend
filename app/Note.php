@@ -43,4 +43,9 @@ class Note extends Model
     {
         return $this->belongsToMany('App\User')->wherePivot('user_id', $userId)->wherePivot('can_share', 1)->exists();
     }
+
+    public function canUserDelete($userId)
+    {
+        return $this->belongsToMany('App\User')->wherePivot('user_id', $userId)->wherePivot('can_delete', 1)->exists();
+    }
 }

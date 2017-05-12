@@ -30,7 +30,6 @@ class User extends Authenticatable
 
     public function notes()
     {
-        //return $this->belongsToMany('App\Note', 'note_user', 'user_id', 'note_id');
         return $this->belongsToMany('App\Note');
     }
 
@@ -40,7 +39,8 @@ class User extends Authenticatable
 
     public static function isRegistered($email)
     {
-        $user = User::where('email', $email);
+        $user = User::where('email', $email)->first();
+
         return !empty($user);
     }
 }

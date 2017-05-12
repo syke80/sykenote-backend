@@ -21,14 +21,6 @@ class AuthController extends Controller
         $email = $request->input('email');
         $password = $request->input('password');
 
-        if (User::isRegistered($email)) {
-            $responseData = [
-                'msg' => 'User already exists.',
-            ];
-
-            return response()->json($responseData, 400);
-        }
-
         $userData = [
             'email' => $email,
             'password' => bcrypt($password)
